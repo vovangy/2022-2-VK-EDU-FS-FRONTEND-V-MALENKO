@@ -1,0 +1,33 @@
+{
+  "name": "2022-2-vk-edu-fs-frontend-v-malenko",
+  "version": "1.0.0",
+  "description": "Учебный проект",
+  "main": "convertBytesToHuman.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vovangy/2022-2-VK-EDU-FS-FRONTEND-V-MALENKO.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vovangy/2022-2-VK-EDU-FS-FRONTEND-V-MALENKO/issues"
+  },
+  "homepage": "https://github.com/vovangy/2022-2-VK-EDU-FS-FRONTEND-V-MALENKO#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "babel-jest": "^29.1.2",
+    "jest": "^29.1.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
+  }
+}
