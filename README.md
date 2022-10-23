@@ -1,2 +1,0 @@
-# 2022-2-VK-EDU-FS-FRONTEND-V-MALENKO
-Учебный проект
