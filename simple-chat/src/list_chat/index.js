@@ -7,15 +7,25 @@ form.addEventListener('submit', handleSubmit.bind(this));
 const chats = localStorage.getItem("chats");
 
 if (!chats) {
-  let current_chats = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
+  let current_chats = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}, "2":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
   localStorage.setItem("chats", current_chats);
 }
 let history = JSON.parse(localStorage.getItem("chats"));
 
 for (let chat of Object.keys(history)) {
-  let set_chat = new Map();
+    let set_chat = new Map();
     set_chat.set(chat, {"user_id":1, "messages":history[chat]["messages"]});
-    setChat(set_chat);
+
+    setChat(set_chat, chat);
+
+}
+
+for (let chat of Object.keys(history)) {
+    let myLink = document.getElementById(chat);
+    myLink.onclick = function() {
+        localStorage.setItem("current_chat", chat);
+        location.href="index.html";
+    }
 }
 
 function handleSubmit(event) {
@@ -23,33 +33,29 @@ function handleSubmit(event) {
 }
 
 
-function makeChat(chat) {
-    console.log(chat.get(Object.keys(chat)[0]));
-    console.log(chat.get("1")["messages"].slice(-1)[0]);
-    return '          <div class="chat-container" onclick="location.href=\'index.html\'"> \
-    <div class="chat-photo"> \
+function makeChat(chat, id) {
+    return '          <div class="chat-container" id=' + id +
+    '><div class="chat-photo"> \
         <img class="img-center" src="https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/MESSI.jpg"></img> \
     </div> \
     <div class="chat-message"> \
-        <div class="chat-message-name">' + selectNameFromDatabase(chat.get("1")["messages"].slice(-1)[0]["user_id"]) + '</div> \
-        <div class="chat-message-text">' + chat.get("1")["messages"].slice(-1)[0]["value"] + '</div> \
+        <div class="chat-message-name">' + selectNameFromDatabase(1) + '</div> \
+        <div class="chat-message-text">' + chat.get(id)["messages"].slice(-1)[0]["value"] + '</div> \
     </div> \
     <div class="chat-time-seen"> \
-        <div class="chat-time-message">' + chat.get("1")["messages"].slice(-1)[0]["time"] +
+        <div class="chat-time-message">' + chat.get(id)["messages"].slice(-1)[0]["time"] +
         '</div> \
         <div class="chat-seen"> \
             <i class="material-icons done_all">done_all</i> \
         </div> \
     </div> \
 </div>'
-    return '<a href="index.html"><div>' + selectNameFromDatabase(chat.get("1")["messages"].slice(-1)[0]["user_id"]) + '</div>' +
-    chat.get("1")["messages"].slice(-1)[0]["value"] + '<div class="time">' + chat.get("1")["messages"].slice(-1)[0]["time"] +
-'</div></div></a>';
 }
 
-function setChat(value) {
+function setChat(value, id) {
   document.getElementById("after_end").insertAdjacentHTML("beforeend",
-makeChat(value));
+makeChat(value, id));
+    
 }
 
 function selectNameFromDatabase(user_id) {

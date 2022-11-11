@@ -9,21 +9,14 @@ var current_chat = localStorage.getItem("current_chat", current_chat);
 
 if (!chats) {
   chats = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
-  current_chat = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
+  current_chat = "1";
+  localStorage.setItem("chats", chats);
   localStorage.setItem("current_chat", current_chat);
-} else {
-    if (!current_chat) {
-        current_chat = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
-        localStorage.setItem("current_chat", current_chat);
-    }
 }
 
 chats = JSON.parse(chats);
-var history = JSON.parse(localStorage.getItem("current_chat"));
 
-console.log(history);
-
-for (let message_cur of history[Object.keys(history)[0]]["messages"]) {
+for (let message_cur of chats[current_chat]["messages"]) {
   let message = new Map();
   message.set("user_id", Number(message_cur["user_id"]));
   message.set("value", message_cur["value"]);
@@ -54,10 +47,8 @@ function makeMessage(message) {
 }
 
 function addMessageToDict(message) {
-  chats[Object.keys(history)[0]]["messages"].push({"user_id":message.get("user_id"), "value":message.get("value"), "time":message.get("time")});
-  history[Object.keys(history)[0]]["messages"].push({"user_id":message.get("user_id"), "value":message.get("value"), "time":message.get("time")});
+  chats[current_chat]["messages"].push({"user_id":message.get("user_id"), "value":message.get("value"), "time":message.get("time")});
   localStorage.setItem("chats", JSON.stringify(chats));
-  localStorage.setItem("current_chat", JSON.stringify(history));
 }
 
 function sendMessage(value) {
