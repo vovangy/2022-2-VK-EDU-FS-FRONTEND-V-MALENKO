@@ -154,5 +154,6 @@ color: white;
 .img-center {
     display: block;
     width: 100%;
+    border-radius:50%;
 }
 
