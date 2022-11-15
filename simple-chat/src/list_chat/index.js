@@ -7,7 +7,7 @@ form.addEventListener('submit', handleSubmit.bind(this));
 const chats = localStorage.getItem("chats");
 
 if (!chats) {
-  let current_chats = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}, "2":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
+  let current_chats = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR","time":"12:34"}]}, "2":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
   localStorage.setItem("chats", current_chats);
 }
 let history = JSON.parse(localStorage.getItem("chats"));

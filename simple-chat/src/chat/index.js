@@ -8,7 +8,7 @@ var chats = localStorage.getItem("chats");
 var current_chat = localStorage.getItem("current_chat", current_chat);
 
 if (!chats) {
-  chats = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUU","time":"12:34"}]}}';
+  chats = '{"1":{"user_id": 1, "messages":[{"user_id":1,"value":"SIUUUUUU","time":"12:34"}]}}';
   current_chat = "1";
   localStorage.setItem("chats", chats);
   localStorage.setItem("current_chat", current_chat);
@@ -40,7 +40,7 @@ function handleSubmit(event) {
 
 
 function makeMessage(message) {
-  if (message.get("user_id") == 1) {
+  if (message.get("user_id") != 1) {
     return '<div class = "style-send-message"><div class="sender">' + selectNameFromDatabase(message.get("user_id")) + '</div>' + message.get("value") + '<div class="time">' + message.get("time") + '</div></div>';
   }
   return '<div class = "style-get-message"><div class="sender">' + selectNameFromDatabase(message.get("user_id")) + '</div>' + message.get("value") + '<div class="time">' + message.get("time") + '</div></div>';
