@@ -24,7 +24,7 @@ for (let chat of Object.keys(history)) {
     let myLink = document.getElementById(chat);
     myLink.onclick = function() {
         localStorage.setItem("current_chat", chat);
-        location.href="index.html";
+        location.href="chat";
     }
 }
 

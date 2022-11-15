@@ -62,12 +62,12 @@ module.exports = {
             filename: '[name]-style.css',
         }),
         new HTMLWebpackPlugin({
-            filename: 'Sindex.html',
+            filename: 'list_chat',
             template: './list_chat/index.html',
             chunks:['list_chat'],
         }),
         new HTMLWebpackPlugin({
-            filename: 'index.html',
+            filename: 'chat',
             template: './chat/index.html',
             chunks:['chat'],
         })
