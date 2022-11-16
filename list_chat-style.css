@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    height: 100%;
 }
 
 *,
@@ -16,6 +17,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 20px;
+    height: 94.5%;
 }
 
 .back-slide {
@@ -52,11 +54,11 @@ color: white;
     width: 100%;
     border: 4px solid rgba(25, 25, 25, 0.32);
     background: #f1faf0;
-    height:900px;
+    height:100%;
 }
 
 .chat {
-    height: 90%;
+    height: 100%;
     overflow: auto;
 }
 
@@ -105,7 +107,7 @@ color: white;
 .chat-photo {
     padding: 8px;
     display: flex;
-    min-width: 80px;
+    width: 80px;
     height: 80px;
 }
 
@@ -156,5 +158,25 @@ color: white;
     display: block;
     width: 100%;
     border-radius:50%;
+}
+
+.create-chat-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    background: rgb(255, 202, 44);
+    color: rgb(116, 96, 41);
+    width: 10vh;
+    height: 10vh;
+    border-radius: 100%;
+    padding: 25px;
+    transition: all linear .2s;
+}
+
+.create-chat-button:hover {
+    background: #fa8900;
 }
 
