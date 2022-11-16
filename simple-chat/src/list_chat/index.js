@@ -29,7 +29,7 @@ createChatButton.onclick = function() {
     let myLink = document.getElementById(new_chat);
     myLink.onclick = function() {
         localStorage.setItem("current_chat", new_chat);
-        wondow.location.href="chat.html";
+        window.location.href="chat.html";
     }
     return 1;
 }
