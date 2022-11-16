@@ -29,7 +29,7 @@ createChatButton.onclick = function() {
     let myLink = document.getElementById(new_chat);
     myLink.onclick = function() {
         localStorage.setItem("current_chat", new_chat);
-        location.href="chat.html";
+        wondow.location.href="chat.html";
     }
     return 1;
 }
@@ -38,7 +38,7 @@ for (let chat of Object.keys(history)) {
     let myLink = document.getElementById(chat);
     myLink.onclick = function() {
         localStorage.setItem("current_chat", chat);
-        location.href="chat.html";
+        window.location.href="chat.html";
     }
 }
 
@@ -76,5 +76,5 @@ function selectNameFromDatabase(user_id) {
 function selectPhotoFromDatabase(user_id) {
     if (user_id == 1)
         return "https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/MESSI.jpg";
-    return "http://goodnewsanimal.ru/_nw/58/80607095.jpg";
+    return "https://animalsglobe.ru/wp-content/uploads/2011/09/%D0%B1%D0%B5%D0%BB%D0%BA%D0%B0.jpg";
 }
