@@ -29,7 +29,7 @@ createChatButton.onclick = function() {
     let myLink = document.getElementById(new_chat);
     myLink.onclick = function() {
         localStorage.setItem("current_chat", new_chat);
-        location.href="chat";
+        location.href="chat.html";
     }
     return 1;
 }
@@ -38,7 +38,7 @@ for (let chat of Object.keys(history)) {
     let myLink = document.getElementById(chat);
     myLink.onclick = function() {
         localStorage.setItem("current_chat", chat);
-        location.href="chat";
+        location.href="chat.html";
     }
 }
 
